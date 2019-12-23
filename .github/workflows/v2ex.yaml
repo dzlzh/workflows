@@ -1,0 +1,20 @@
+name: "V2ex Sign"
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'env'
+        env:
+          API_KEY: ${{ secrets.MAIL_API_KEY }}
+          MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
+      - name: 'Sign v2ex'
+        run: bash ./v2ex_sign.sh
