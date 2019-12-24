@@ -12,9 +12,9 @@ function sendRequest() {
       $1
 }
 
-sendrequest $base_url
+sendRequest $base_url
 sign_url=$base_url`sed -n "s/.*\/mission\/daily\/\(redeem?once=\w*\).*/\1/p" result.html`
-sendrequest $sign_url
-sendrequest $base_url
+sendRequest $sign_url
+sendRequest $base_url
 message=$(sed -n "s/.*\(每日登录奖励已领取\).*/\1/p" result.html)
 curl https://sc.ftqq.com/$SCKEY.send?text=$(date "+%Y-%m-%d")-V2ex-${message:-失败}
