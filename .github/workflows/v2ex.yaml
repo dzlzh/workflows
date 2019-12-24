@@ -3,7 +3,7 @@ name: "V2ex Sign"
 on:
   push:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '10 1 * * *'
 
 jobs:
   sign:
@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Sign v2ex'
         env:
-          # API_KEY: ${{ secrets.MAIL_API_KEY }}
-          # MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN }}
-          # MAIL_TO: ${{ secrets.MAIL_TO }}
           V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
+          MAIL_API_KEY: ${{ secrets.MAIL_API_KEY }}
+          MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
         run: bash ./v2ex_sign.sh
