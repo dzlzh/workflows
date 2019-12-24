@@ -14,7 +14,5 @@ jobs:
       - name: 'Sign v2ex'
         env:
           V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
-          MAIL_API_KEY: ${{ secrets.MAIL_API_KEY }}
-          MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
+          SCKEY: ${{ secrets.SCKEY }}
         run: bash ./v2ex_sign.sh
