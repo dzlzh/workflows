@@ -2,7 +2,8 @@ name: "V2ex Sign"
 
 on:
   schedule:
-    - cron: '10 1 * * *'
+    - push:
+    - cron: '15 1 * * *'
 
 jobs:
   sign:

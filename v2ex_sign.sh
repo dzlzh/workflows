@@ -10,6 +10,7 @@ function sendRequest() {
       -H "Cookie: $V2EX_COOKIE" \
       -o result.html \
       $1
+    cat result.html
 }
 
 sendRequest $base_url
