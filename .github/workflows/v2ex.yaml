@@ -15,4 +15,9 @@ jobs:
         env:
           V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./v2ex_sign.sh
+        run: bash ./v2ex.sh
+      - name: 'Sign hacpai'
+        env:
+          HACPAI_COOKIE: ${{ secrets.HACPAI_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./hacpai.sh
