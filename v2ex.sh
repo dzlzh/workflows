@@ -14,7 +14,7 @@ function sendRequest() {
 }
 
 sendRequest $base_url
-sign_url=$base_url`sed -n "s/.*\/mission\/daily\/\(redeem?once=\w*\).*/\1/p" result.html`
+sign_url=$base_url$(sed -n "s/.*\/mission\/daily\/\(redeem?once=\w*\).*/\1/p" result.html)
 sendRequest $sign_url
 sendRequest $base_url
 message=$(sed -n "s/.*\(每日登录奖励已领取\).*/\1/p" result.html)
