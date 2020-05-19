@@ -1,4 +1,4 @@
-name: "V2ex Sign"
+name: "Sign"
 
 on:
   push:
