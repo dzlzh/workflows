@@ -11,7 +11,7 @@ function sendRequest() {
       $1
 }
 
-base_url='https://www.v2ex.com/mission/daily/'
+base_url='https://hacpai.com/activity/checkin'
 cookie=$HACPAI_COOKIE
 sendRequest $base_url
 sign_url=$(sed -n "s/.*\(https:\/\/hacpai.com\/activity\/daily-checkin?token=\w*\).*/\1/p" result.html)
