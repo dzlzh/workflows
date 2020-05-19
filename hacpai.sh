@@ -9,7 +9,6 @@ function sendRequest() {
       -i \
       -o result.html \
       $1
-    cat result.html
 }
 
 base_url='https://www.v2ex.com/mission/daily/'
