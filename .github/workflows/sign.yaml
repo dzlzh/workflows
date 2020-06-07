@@ -1,9 +1,10 @@
 name: "Sign"
 
 on:
-  push:
   schedule:
     - cron: '15 1 * * *'
+  watch:
+    types: [started]
 
 jobs:
   sign:
