@@ -22,3 +22,8 @@ jobs:
           HACPAI_COOKIE: ${{ secrets.HACPAI_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./hacpai.sh
+      - name: 'Sign studygolang'
+        env:
+          HACPAI_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./studygolang.sh
