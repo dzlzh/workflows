@@ -15,4 +15,4 @@ function sendRequest() {
 sendRequest 'https://studygolang.com/mission/daily/redeem'
 message=$(sed -n "s/.*\(已成功领取每日登录奖励\).*/\1/p" result.html)
 
-curl https://sc.ftqq.com/$SCKEY.send?text=$(date "+%Y-%m-%d")-V2ex-${message:-失败}
+curl https://sc.ftqq.com/$SCKEY.send?text=$(date "+%Y-%m-%d")-Studygolang-${message:-失败}
