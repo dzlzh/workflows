@@ -17,13 +17,13 @@ jobs:
           V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./v2ex.sh
+      - name: 'Sign studygolang'
+        env:
+          STUDYGOLANG_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./studygolang.sh
       - name: 'Sign hacpai'
         env:
           HACPAI_COOKIE: ${{ secrets.HACPAI_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./hacpai.sh
-      - name: 'Sign studygolang'
-        env:
-          HACPAI_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./studygolang.sh
