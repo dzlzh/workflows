@@ -21,4 +21,4 @@ curl 'https://glados.work/api/user/checkin' \
   -o result.html
 
 message=$(sed -n "s/.*\"message\":\"\([^\"]*\)\".*/\1/p" result.html)
-curl https://sc.ftqq.com/$SCKEY.send?text=$(date "+%Y-%m-%d")-GLaDOS-${message:-失败}
+curl https://sc.ftqq.com/$SCKEY.send?text="$(date "+%Y-%m-%d")-GLaDOS-${message:-失败}"
