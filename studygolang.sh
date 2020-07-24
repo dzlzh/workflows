@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -eux
+# set -eux
+set -eu
 
 function sendRequest() {
     curl \

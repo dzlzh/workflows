@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -eux
+# set -eux
+set -eu
 
 base_url='https://www.v2ex.com/mission/daily/'
 
