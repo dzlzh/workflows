@@ -16,9 +16,9 @@ function sendRequest() {
 }
 
 cookie=$HACPAI_COOKIE
-sendRequest 'https://hacpai.com/activity/checkin'
+sendRequest 'https://ld246.com/activity/checkin'
 # cookie='cookie.txt'
-sendRequest $(sed -n "s/.*\(https:\/\/hacpai.com\/activity\/daily-checkin?token=\w*\).*/\1/p" result.html)
+sendRequest $(sed -n "s/.*\(https:\/\/ld246.com\/activity\/daily-checkin?token=\w*\).*/\1/p" result.html)
 message=$(sed -n "s/.*今日签到获得[^>]*>\([0-9]*\).*/\1/p" result.html)
 
 curl https://sc.ftqq.com/$SCKEY.send?text=$(date "+%Y-%m-%d")-Hacpai-${message:-失败}
