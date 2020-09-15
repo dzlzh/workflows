@@ -16,6 +16,7 @@ jobs:
         env:
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./glados.sh
       - name: 'Sign GLaDOS-2'
         env:
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_2 }}
