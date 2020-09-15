@@ -8,6 +8,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"time"
 )
 
 type Request struct {
@@ -181,7 +182,7 @@ func sign() {
 		desp += <-ch + "\n"
 	}
 	close(ch)
-	sendFTQQ("签到", desp)
+	sendFTQQ(time.Now().Format("2006-01-02")+"签到", desp)
 }
 
 func main() {
