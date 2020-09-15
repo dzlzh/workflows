@@ -10,6 +10,10 @@ jobs:
   sign:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.15
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Sign'
@@ -22,4 +26,4 @@ jobs:
           LD246_NAME:         ${{ secrets.LD246_NAME }}
           LD246_PASSWORD:     ${{ secrets.LD246_PASSWORD }}
           SCKEY:              ${{ secrets.SCKEY }}
-        run: bash ./workflows
+        run: go run sign.go
