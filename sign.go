@@ -102,6 +102,7 @@ func signStudyGolang(ch chan<- string) {
 }
 
 func signGlados(ch chan<- string, num string) {
+	name := "GlaDOS_" + num
 	type res struct {
 		Code    int         `json:"code"`
 		Data    bool        `json:"data"`
@@ -116,15 +117,15 @@ func signGlados(ch chan<- string, num string) {
 	response := res{}
 	err := json.Unmarshal([]byte(request.send()), &response)
 	if err != nil {
-		ch <- "- GlaDOS 失败"
+		ch <- "- " + name + "失败"
 		return
 	}
 
 	if response.Data {
-		ch <- "- GlaDOS " + response.Message
+		ch <- "- " + name + " " + response.Message
 		return
 	}
-	ch <- "- GlaDOS 失败"
+	ch <- "- " + name + "失败"
 	return
 }
 
