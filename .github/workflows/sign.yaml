@@ -20,12 +20,12 @@ jobs:
         env:
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_2 }}
           SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./glados.sh
+        run: bash ./glados2.sh
       - name: 'Sign GLaDOS-3'
         env:
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_3 }}
           SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./glados.sh
+        run: bash ./glados3.sh
       - name: 'Sign v2ex'
         env:
           V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
