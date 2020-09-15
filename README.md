@@ -13,3 +13,16 @@
 
 - Star
 - 01:15(UTC) 09:15(UTC+8 China)
+
+## `settings/secrets` 中添加以下环境变量
+
+- GLADOS_COOKIE_1
+- GLADOS_COOKIE_2
+- GLADOS_COOKIE_3
+- V2EX_COOKIE
+- STUDYGOLANG_COOKIE
+- LD246_NAME
+- LD246_PASSWORD
+- SCKEY
+
+> 注意避免最后有换行
