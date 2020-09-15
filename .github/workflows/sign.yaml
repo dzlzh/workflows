@@ -12,36 +12,14 @@ jobs:
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
-      - name: 'Sign GLaDOS-1'
+      - name: 'Sign'
         env:
-          NAME: "GLaDOS-1"
-          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./glados.sh
-      - name: 'Sign GLaDOS-2'
-        env:
-          NAME: "GLaDOS-2"
-          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_2 }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./glados.sh
-      - name: 'Sign GLaDOS-3'
-        env:
-          NAME: "GLaDOS-3"
-          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_3 }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./glados.sh
-      - name: 'Sign v2ex'
-        env:
-          V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./v2ex.sh
-      - name: 'Sign studygolang'
-        env:
+          GLADOS_COOKIE_1:    ${{ secrets.GLADOS_COOKIE_1 }}
+          GLADOS_COOKIE_2:    ${{ secrets.GLADOS_COOKIE_2 }}
+          GLADOS_COOKIE_3:    ${{ secrets.GLADOS_COOKIE_3 }}
+          V2EX_COOKIE:        ${{ secrets.V2EX_COOKIE }}
           STUDYGOLANG_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./studygolang.sh
-      - name: 'Sign hacpai'
-        env:
-          HACPAI_COOKIE: ${{ secrets.HACPAI_COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run: bash ./hacpai.sh
+          LD246_NAME:         ${{ secrets.LD246_NAME }}
+          LD246_PASSWORD:     ${{ secrets.LD246_PASSWORD }}
+          SCKEY:              ${{ secrets.SCKEY }}
+        run: bash ./workflows
