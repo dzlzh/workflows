@@ -1,0 +1,47 @@
+name: "Sign"
+
+on:
+  schedule:
+    - cron: '15 1 * * *'
+  watch:
+    types: [started]
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Sign GLaDOS-1'
+        env:
+          NAME: "GLaDOS-1"
+          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./glados.sh
+      - name: 'Sign GLaDOS-2'
+        env:
+          NAME: "GLaDOS-2"
+          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_2 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./glados.sh
+      - name: 'Sign GLaDOS-3'
+        env:
+          NAME: "GLaDOS-3"
+          GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_3 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./glados.sh
+      - name: 'Sign v2ex'
+        env:
+          V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./v2ex.sh
+      - name: 'Sign studygolang'
+        env:
+          STUDYGOLANG_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./studygolang.sh
+      - name: 'Sign hacpai'
+        env:
+          HACPAI_COOKIE: ${{ secrets.HACPAI_COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run: bash ./hacpai.sh
