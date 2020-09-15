@@ -14,16 +14,19 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Sign GLaDOS-1'
         env:
+          NAME: "GLaDOS-1"
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./glados.sh
       - name: 'Sign GLaDOS-2'
         env:
+          NAME: "GLaDOS-2"
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_2 }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./glados.sh
       - name: 'Sign GLaDOS-3'
         env:
+          NAME: "GLaDOS-3"
           GLADOS_COOKIE: ${{ secrets.GLADOS_COOKIE_3 }}
           SCKEY: ${{ secrets.SCKEY }}
         run: bash ./glados.sh
