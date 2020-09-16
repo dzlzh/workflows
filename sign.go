@@ -23,12 +23,17 @@ type Request struct {
 func (request *Request) send() string {
 	query := url.Values{}
 	url, _ := url.Parse(request.URL)
-	for key, val := range request.Query {
-		query.Set(key, val)
+	if request.Query != nil {
+		for key, val := range request.Query {
+			query.Set(key, val)
+		}
+		url.RawQuery = query.Encode()
 	}
-	url.RawQuery = query.Encode()
 
-	params, _ := json.Marshal(request.Params)
+	var params []byte
+	if request.Params != nil {
+		params, _ = json.Marshal(request.Params)
+	}
 
 	req, _ := http.NewRequest(request.Method, url.String(), strings.NewReader(string(params)))
 
@@ -73,11 +78,7 @@ func signV2ex(ch chan<- string) {
 	results := reg.FindStringSubmatch(response)
 	if len(results) > 0 {
 		request.URL = request.URL + results[1]
-		request.send()
-
-		request.URL = "https://www.v2ex.com/mission/daily/"
 		response = request.send()
-
 		if ok, _ := regexp.MatchString(`.*(每日登录奖励已领取).*`, response); ok {
 			ch <- "- v2ex成功"
 			return
@@ -147,13 +148,15 @@ func signLd246(ch chan<- string) {
 	response := res{}
 	err := json.Unmarshal([]byte(request.send()), &response)
 	if err != nil {
-		ch <- "- ld246 失败"
+		ch <- "- ld246 登录失败"
 		return
 	}
 	if response.Code == 0 {
 		request.Method = "GET"
 		request.URL = "https://ld246.com/activity/checkin"
 		request.Cookie = "symphony=" + response.Token
+		request.Params = map[string]string{}
+		request.send()
 		body := request.send()
 
 		reg := regexp.MustCompile(`.*今日签到获得[^>]*>([0-9]*).*`)
