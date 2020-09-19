@@ -115,6 +115,12 @@ func signGlados(ch chan<- string, num string) {
 		Method: "POST",
 		URL:    "https://glados.work/api/user/checkin",
 		Cookie: os.Getenv("GLADOS_COOKIE_" + num),
+		Params: map[string]string{"token": "glados_network"},
+		Headers: map[string]string{
+			"Authority":    "glados.work",
+			"Content-Type": "application/json;charset=UTF-8",
+			"Origin":       "https://glados.work",
+		},
 	}
 	response := res{}
 	err := json.Unmarshal([]byte(request.send()), &response)
@@ -171,13 +177,13 @@ func signLd246(ch chan<- string) {
 }
 
 func sign() {
-	num := 3
+	num := 6
 	desp := ""
 	ch := make(chan string, num)
 
-	// go signGlados(ch, "1")
-	// go signGlados(ch, "2")
-	// go signGlados(ch, "3")
+	go signGlados(ch, "1")
+	go signGlados(ch, "2")
+	go signGlados(ch, "3")
 	go signV2ex(ch)
 	go signStudyGolang(ch)
 	go signLd246(ch)
