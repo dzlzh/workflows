@@ -171,17 +171,18 @@ func signLd246(ch chan<- string) {
 }
 
 func sign() {
+	num := 3
 	desp := ""
-	ch := make(chan string, 6)
+	ch := make(chan string, num)
 
-	go signGlados(ch, "1")
-	go signGlados(ch, "2")
-	go signGlados(ch, "3")
+	// go signGlados(ch, "1")
+	// go signGlados(ch, "2")
+	// go signGlados(ch, "3")
 	go signV2ex(ch)
 	go signStudyGolang(ch)
 	go signLd246(ch)
 
-	for i := 0; i < 6; i++ {
+	for i := 0; i < num; i++ {
 		desp += <-ch + "\n"
 	}
 	close(ch)
