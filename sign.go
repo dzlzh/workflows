@@ -107,7 +107,7 @@ func signGlados(ch chan<- string, num string) {
 	name := "GlaDOS_" + num
 	type res struct {
 		Code    int         `json:"code"`
-		Data    bool        `json:"data"`
+		Data    bool        `json:"data,omitempty"`
 		Message string      `json:"message"`
 		List    interface{} `json:"list"`
 	}
@@ -129,12 +129,7 @@ func signGlados(ch chan<- string, num string) {
 		return
 	}
 
-	if response.Data {
-		ch <- "- " + name + " " + response.Message
-		return
-	}
-	ch <- "- " + name + "失败"
-	return
+	ch <- "- " + name + " " + response.Message
 }
 
 func signLd246(ch chan<- string) {
