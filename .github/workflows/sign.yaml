@@ -9,6 +9,7 @@ on:
 jobs:
   sign:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Set up Go
         uses: actions/setup-go@v1
@@ -18,12 +19,12 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Sign'
         env:
+          SCKEY:              ${{ secrets.SCKEY }}
+          LD246_NAME:         ${{ secrets.LD246_NAME }}
+          LD246_PASSWORD:     ${{ secrets.LD246_PASSWORD }}
+          V2EX_COOKIE:        ${{ secrets.V2EX_COOKIE }}
+          STUDYGOLANG_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
           GLADOS_COOKIE_1:    ${{ secrets.GLADOS_COOKIE_1 }}
           GLADOS_COOKIE_2:    ${{ secrets.GLADOS_COOKIE_2 }}
           GLADOS_COOKIE_3:    ${{ secrets.GLADOS_COOKIE_3 }}
-          V2EX_COOKIE:        ${{ secrets.V2EX_COOKIE }}
-          STUDYGOLANG_COOKIE: ${{ secrets.STUDYGOLANG_COOKIE }}
-          LD246_NAME:         ${{ secrets.LD246_NAME }}
-          LD246_PASSWORD:     ${{ secrets.LD246_PASSWORD }}
-          SCKEY:              ${{ secrets.SCKEY }}
         run: go run sign.go
