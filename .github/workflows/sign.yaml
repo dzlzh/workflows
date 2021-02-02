@@ -11,13 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+
       - name: Set up Go
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v2
         with:
           go-version: 1.15
-      - name: 'Checkout codes'
-        uses: actions/checkout@v1
-      - name: 'Sign'
+
+      - name: Sign
         env:
           SCKEY:              ${{ secrets.SCKEY }}
           LD246_NAME:         ${{ secrets.LD246_NAME }}
