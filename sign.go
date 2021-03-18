@@ -61,8 +61,8 @@ func (request *Request) send() string {
 func sendFTQQ(text, desp string) {
 	request := Request{
 		Method: "GET",
-		URL:    "https://sc.ftqq.com/" + os.Getenv("SCKEY") + ".send",
-		Query:  map[string]string{"text": text, "desp": desp},
+		URL:    "https://sctapi.ftqq.com/" + os.Getenv("SCKEY") + ".send",
+		Query:  map[string]string{"title": text, "desp": desp},
 	}
 	request.send()
 }
@@ -192,17 +192,4 @@ func sign() {
 
 func main() {
 	sign()
-	// fmt.Println(os.Getenv("GLADOS_COOKIE_1"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("GLADOS_COOKIE_2"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("GLADOS_COOKIE_3"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("V2EX_COOKIE"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("STUDYGOLANG_COOKIE"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("LD246_NAME"), os.Getenv("LD246_PASSWORD"))
-	// fmt.Println()
-	// fmt.Println(os.Getenv("SCKEY"))
 }
