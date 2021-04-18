@@ -160,11 +160,15 @@ func signLd246(ch chan<- string) {
 		request.send()
 		body := request.send()
 
-		reg := regexp.MustCompile(`.*今日签到获得[^>]*>([0-9]*).*`)
+		reg := regexp.MustCompile(`.*(daily-checkin\?token=\w+).*`)
 		results := reg.FindStringSubmatch(body)
 		if len(results) > 0 {
-			ch <- "- ld246获取" + results[1] + "积分"
-			return
+			request.URL = "https://ld246.com/activity/" + results[1]
+			body = request.send()
+			if ok, _ := regexp.MatchString(`.*今日签到获得[^>]*>([0-9]*).*`, body); ok {
+				ch <- "- ld246成功"
+				return
+			}
 		}
 	}
 	ch <- "- ld246 失败"
