@@ -60,9 +60,9 @@ func (request *Request) send() string {
 
 func sendFTQQ(text, desp string) {
 	request := Request{
-		Method: "GET",
+		Method: "POST",
 		URL:    "https://sctapi.ftqq.com/" + os.Getenv("SCKEY") + ".send",
-		Query:  map[string]string{"title": text, "desp": desp},
+		Params: map[string]string{"title": text, "desp": desp},
 	}
 	request.send()
 }
