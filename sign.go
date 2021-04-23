@@ -62,7 +62,7 @@ func sendFTQQ(text, desp string) {
 	request := Request{
 		Method: "POST",
 		URL:    "https://sctapi.ftqq.com/" + os.Getenv("SCKEY") + ".send",
-		Params: map[string]string{"title": text, "desp": desp},
+		Query:  map[string]string{"title": text, "desp": desp},
 	}
 	request.send()
 }
