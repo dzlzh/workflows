@@ -7,7 +7,7 @@
 - v2ex
 - studygolang
 - ld246
-- ~~glados~~
+- glados
 
 ## 触发条件
 
@@ -16,9 +16,9 @@
 
 ## `settings/secrets` 中添加以下环境变量
 
-- ~~GLADOS_COOKIE_1~~
-- ~~GLADOS_COOKIE_2~~
-- ~~GLADOS_COOKIE_3~~
+- GLADOS_COOKIE_1
+- GLADOS_COOKIE_2
+- GLADOS_COOKIE_3
 - V2EX_COOKIE
 - STUDYGOLANG_COOKIE
 - LD246_NAME
