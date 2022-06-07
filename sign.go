@@ -178,11 +178,11 @@ func signLd246(ch chan<- string) {
 }
 
 func sign() {
-	num := 4
+	num := 2
 	ch := make(chan string, num)
 
-	go signGlados(ch, "1")
-	go signGlados(ch, "2")
+	// go signGlados(ch, "1")
+	// go signGlados(ch, "2")
 	// go signGlados(ch, "3")
 	go signV2ex(ch)
 	go signStudyGolang(ch)
